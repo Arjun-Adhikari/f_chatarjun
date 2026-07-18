@@ -31,6 +31,10 @@ pnpm-debug.log*
 .vscode/
 .idea/
 
+# Wrangler
+.wrangler/
+.dev.vars
+
 # Operating System Files
 .DS_Store
 Thumbs.db
