@@ -8,13 +8,11 @@ export async function POST(request: Request) {
 
   try {
     const { name, email, password } = await request.json();
-    const origin = request.headers.get("origin") || request.headers.get("referer") || "";
 
     const res = await fetch(`${apiBaseUrl}/auth/sign-up/email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...(origin ? { Origin: origin } : {}),
       },
       body: JSON.stringify({ name, email, password }),
     });

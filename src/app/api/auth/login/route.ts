@@ -8,13 +8,11 @@ export async function POST(request: Request) {
 
   try {
     const { email, password } = await request.json();
-    const origin = request.headers.get("origin") || request.headers.get("referer") || "";
 
     const res = await fetch(`${apiBaseUrl}/auth/sign-in/email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...(origin ? { Origin: origin } : {}),
       },
       body: JSON.stringify({ email, password }),
     });
